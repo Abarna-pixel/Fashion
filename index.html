@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AURA - Premium Luxury Fashion Store. Discover premium Men, Women, and Kids fashion with elegance.">
+    <title>AURA | Luxury Fashion Boutique</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 1. LOADING SCREEN -->
+    <div id="loader">
+        <div class="loader-logo">AURA</div>
+        <div class="loader-ring"></div>
+    </div>
+
+    <!-- 2. HEADER & NAVIGATION -->
+    <header>
+        <div class="container header-container">
+            <!-- Mobile Toggle -->
+            <button id="mobile-menu-btn" class="mobile-menu-toggle" onclick="openMobileDrawer()" aria-label="Open Navigation Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- Brand Logo -->
+            <a href="#home" class="logo">AU<span>RA</span></a>
+
+            <!-- Desktop Nav Menu -->
+            <nav class="nav-menu">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#shop" class="nav-link">Shop</a>
+                <a href="#men" class="nav-link">Men</a>
+                <a href="#women" class="nav-link">Women</a>
+                <a href="#kids" class="nav-link">Kids</a>
+                <a href="#about" class="nav-link">About Us</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+
+            <!-- Utilities (Icons) -->
+            <div class="header-utilities">
+                <!-- Theme Toggle -->
+                <button id="theme-toggle" class="icon-btn" onclick="toggleTheme()" title="Toggle Dark/Light Mode" aria-label="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+
+                <!-- Search Bar -->
+                <div class="search-container">
+                    <div id="header-search-wrapper" class="search-input-wrapper">
+                        <input type="text" placeholder="Search product..." class="search-input" aria-label="Search inputs">
+                    </div>
+                    <button id="header-search-btn" class="icon-btn" title="Search Product" aria-label="Search">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+
+                <!-- Wishlist Icon -->
+                <a href="#wishlist" class="icon-btn" title="Wishlist" aria-label="View Wishlist">
+                    <i class="far fa-heart"></i>
+                    <span class="badge-count wishlist-count-badge">0</span>
+                </a>
+
+                <!-- Shopping Bag Drawer Icon -->
+                <button class="icon-btn" onclick="toggleCartDrawer()" title="Shopping Bag" aria-label="Open Shopping Cart">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="badge-count cart-count-badge">0</span>
+                </button>
+
+                <!-- User Session Icon -->
+                <button id="user-menu-btn" class="icon-btn" title="Login / Register" aria-label="User Account">
+                    <i class="far fa-user"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 3. MOBILE NAVIGATION DRAWER -->
+    <div id="mobile-drawer" class="mobile-drawer">
+        <div class="mobile-drawer-header">
+            <a href="#home" class="logo">AU<span>RA</span></a>
+            <button class="icon-btn" onclick="closeMobileDrawer()" aria-label="Close drawer menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <nav class="mobile-drawer-menu">
+            <a href="#home" class="mobile-nav-link" onclick="closeMobileDrawer()">Home</a>
+            <a href="#shop" class="mobile-nav-link" onclick="closeMobileDrawer()">Shop Catalog</a>
+            <a href="#men" class="mobile-nav-link" onclick="closeMobileDrawer()">Men Collection</a>
+            <a href="#women" class="mobile-nav-link" onclick="closeMobileDrawer()">Women Collection</a>
+            <a href="#kids" class="mobile-nav-link" onclick="closeMobileDrawer()">Kids Collection</a>
+            <a href="#about" class="mobile-nav-link" onclick="closeMobileDrawer()">About AURA</a>
+            <a href="#contact" class="mobile-nav-link" onclick="closeMobileDrawer()">Contact & FAQ</a>
+        </nav>
+    </div>
+
+    <!-- Global Drawer Overlay -->
+    <div id="drawer-overlay" class="drawer-overlay" onclick="closeCartDrawer(); closeMobileDrawer();"></div>
+
+    <!-- 4. MAIN CONTAINER (VIEWS CONTAINER) -->
+    <main>
+
+        <!-- A. HOME VIEW -->
+        <section id="home-view" class="view-section active">
+            <!-- Hero Banner -->
+            <div class="hero-banner" style="background-image: url('images/hero_banner.png');">
+                <div class="container">
+                    <div class="hero-content">
+                        <span class="hero-subtitle">High Couture Heritage</span>
+                        <h1 class="hero-title">Timeless Luxury, Crafted for You</h1>
+                        <p class="hero-description">Explore the premium seasonal collection with elegant details and golden craftsmanship accents.</p>
+                        <a href="#shop" class="btn btn-gold">Explore Collections</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Featured Collections -->
+            <div class="section-padding container">
+                <div class="text-center">
+                    <h2 class="section-title">Featured Collections</h2>
+                    <p class="section-subtitle">Curated designer wear for every moment</p>
+                </div>
+                <div class="category-grid">
+                    <!-- Men Card -->
+                    <div class="category-card">
+                        <img src="images/men_category.png" alt="Men collection" class="category-img">
+                        <div class="category-overlay">
+                            <h3 class="category-name">Men Collection</h3>
+                            <a href="#men" class="category-link">Shop Men</a>
+                        </div>
+                    </div>
+                    <!-- Women Card -->
+                    <div class="category-card">
+                        <img src="images/women_category.png" alt="Women collection" class="category-img">
+                        <div class="category-overlay">
+                            <h3 class="category-name">Women Collection</h3>
+                            <a href="#women" class="category-link">Shop Women</a>
+                        </div>
+                    </div>
+                    <!-- Kids Card -->
+                    <div class="category-card">
+                        <img src="images/kids_category.png" alt="Kids collection" class="category-img">
+                        <div class="category-overlay">
+                            <h3 class="category-name">Kids Collection</h3>
+                            <a href="#kids" class="category-link">Shop Kids</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trending Products -->
+            <div class="section-padding container">
+                <div class="text-center">
+                    <h2 class="section-title">Trending Styles</h2>
+                    <p class="section-subtitle">Must-have items capturing this season's look</p>
+                </div>
+                <div id="trending-products-grid" class="product-showcase">
+                    <!-- Dynamic rendering -->
+                </div>
+            </div>
+
+            <!-- Best Sellers -->
+            <div class="section-padding container" style="border-top: 1px solid var(--border-color);">
+                <div class="text-center">
+                    <h2 class="section-title">Best Sellers</h2>
+                    <p class="section-subtitle">Exquisite designs backed by consumer adoration</p>
+                </div>
+                <div id="best-sellers-grid" class="product-showcase">
+                    <!-- Dynamic rendering -->
+                </div>
+            </div>
+
+            <!-- Customer Reviews Slider -->
+            <div class="section-padding reviews-section">
+                <div class="container">
+                    <div class="text-center">
+                        <h2 class="section-title">Customer Adoration</h2>
+                        <p class="section-subtitle">Honest reviews from our luxury patrons</p>
+                    </div>
+                    <div class="reviews-container">
+                        <div id="review-slider" class="review-slider">
+                            <!-- Review 1 -->
+                            <div class="review-slide">
+                                <div class="review-stars">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                </div>
+                                <blockquote class="review-text">"The bespoke gold suit fitting was flawless. The structural drapery and fine cashmere wool feel absolutely majestic. True luxury brand experience."</blockquote>
+                                <cite class="review-author">Alexander Vance</cite>
+                                <p class="review-author-title">London, UK</p>
+                            </div>
+                            <!-- Review 2 -->
+                            <div class="review-slide">
+                                <div class="review-stars">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                </div>
+                                <blockquote class="review-text">"AURA has completely elevated my evening gown selections. The golden silk details are exquisite, catching the light perfectly. Extremely recommended."</blockquote>
+                                <cite class="review-author">Genevieve Moore</cite>
+                                <p class="review-author-title">New York, USA</p>
+                            </div>
+                            <!-- Review 3 -->
+                            <div class="review-slide">
+                                <div class="review-stars">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <blockquote class="review-text">"The kids' tuxedos sets are just adorable yet exceptionally premium! My son was the highlight of the banquet gala. Fast shipping!"</blockquote>
+                                <cite class="review-author">Elena Rostova</cite>
+                                <p class="review-author-title">Milan, Italy</p>
+                            </div>
+                        </div>
+                        <!-- Slider Dots -->
+                        <div class="slider-controls">
+                            <span class="slider-dot active"></span>
+                            <span class="slider-dot"></span>
+                            <span class="slider-dot"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Newsletter Subscription -->
+            <div class="section-padding newsletter-section">
+                <div class="container newsletter-container">
+                    <h2>Join the Guild of AURA</h2>
+                    <p>Subscribe to receive exclusive access to private capsule drops, seasonal lookbooks, and VIP gold rewards benefits.</p>
+                    <form class="newsletter-form" onsubmit="handleNewsletterSubmit(event)">
+                        <input type="email" placeholder="Your luxury email address" class="newsletter-input" required aria-label="Email address">
+                        <button type="submit" class="newsletter-btn">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- B. SHOP CATALOG VIEW -->
+        <section id="shop-view" class="view-section">
+            <div class="container section-padding">
+                <div class="text-center">
+                    <h2 class="section-title">Shop Collection</h2>
+                    <p class="section-subtitle">Exquisite high-fashion couture tailored for elegance</p>
+                </div>
+
+                <div class="shop-layout">
+                    <!-- Sidebar Filters -->
+                    <aside class="filters-sidebar">
+                        <div class="filter-group">
+                            <h4 class="filter-title">Search</h4>
+                            <input type="text" id="shop-search-input" class="form-input" placeholder="Type name, brand..." aria-label="Search products">
+                        </div>
+
+                        <div class="filter-group">
+                            <h4 class="filter-title">Collection Category</h4>
+                            <select id="filter-cat-select" class="form-select" aria-label="Category selector">
+                                <option value="all">All Collections</option>
+                                <option value="men">Men Collection</option>
+                                <option value="women">Women Collection</option>
+                                <option value="kids">Kids Collection</option>
+                                <option value="new-arrivals">New Arrivals</option>
+                                <option value="sale">Special Sale</option>
+                            </select>
+                        </div>
+
+                        <div class="filter-group">
+                            <h4 class="filter-title">Price Range</h4>
+                            <div class="price-range-container">
+                                <input type="range" id="price-range-slider" min="30" max="1200" value="1200" class="price-slider">
+                                <div class="price-values">
+                                    <span>Min: $30</span>
+                                    <span id="price-range-value" class="gold-text" style="font-weight:600;">$1200</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="filter-group">
+                            <h4 class="filter-title">Color Tone</h4>
+                            <div class="color-filter-grid">
+                                <button class="color-filter-dot" data-color="#111111" style="background-color: #111111;" title="Pure Black" aria-label="Filter black"></button>
+                                <button class="color-filter-dot" data-color="#d4af37" style="background-color: #d4af37;" title="Imperial Gold" aria-label="Filter gold"></button>
+                                <button class="color-filter-dot" data-color="#ffffff" style="background-color: #ffffff;" title="Pristine White" aria-label="Filter white"></button>
+                                <button class="color-filter-dot" data-color="#c2a688" style="background-color: #c2a688;" title="Beige Wool" aria-label="Filter beige"></button>
+                                <button class="color-filter-dot" data-color="#a21c26" style="background-color: #a21c26;" title="Royalty Crimson" aria-label="Filter red"></button>
+                                <button class="color-filter-dot" data-color="#4a0e17" style="background-color: #4a0e17;" title="Deep Velvet Burgundy" aria-label="Filter burgundy"></button>
+                            </div>
+                        </div>
+
+                        <div class="filter-group">
+                            <h4 class="filter-title">Sizes</h4>
+                            <div class="size-filter-grid">
+                                <button class="size-filter-btn" data-size="S">S</button>
+                                <button class="size-filter-btn" data-size="M">M</button>
+                                <button class="size-filter-btn" data-size="L">L</button>
+                                <button class="size-filter-btn" data-size="XL">XL</button>
+                            </div>
+                        </div>
+
+                        <button id="reset-filters" class="btn btn-outline btn-block" style="margin-top: 10px;">Reset Filters</button>
+                    </aside>
+
+                    <!-- Products View -->
+                    <div>
+                        <div class="shop-results-header">
+                            <span id="shop-results-count">Showing 30 products</span>
+                            <div>
+                                <label for="shop-sort" style="margin-right: 8px; font-weight: 500;">Sort By:</label>
+                                <select id="shop-sort" class="shop-sort-select">
+                                    <option value="popular">Popularity</option>
+                                    <option value="price-low">Price: Low to High</option>
+                                    <option value="price-high">Price: High to Low</option>
+                                    <option value="rating">Highest Rated</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div id="shop-products-grid" class="products-grid">
+                            <!-- Dynamic render -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- C. WISHLIST VIEW -->
+        <section id="wishlist-view" class="view-section">
+            <div class="container section-padding">
+                <div class="text-center">
+                    <h2 class="section-title">My Wishlist</h2>
+                    <p class="section-subtitle">Your private collection of desired elegance</p>
+                </div>
+                <div id="wishlist-grid" class="wishlist-layout">
+                    <!-- Dynamic rendering -->
+                </div>
+            </div>
+        </section>
+
+        <!-- D. CHECKOUT VIEW -->
+        <section id="checkout-view" class="view-section">
+            <div class="container section-padding">
+                <div class="text-center">
+                    <h2 class="section-title">Checkout</h2>
+                    <p class="section-subtitle">Finalize your premium selection acquisition</p>
+                </div>
+
+                <div class="checkout-layout">
+                    <!-- Left: Checkout steps wizard forms -->
+                    <div>
+                        <!-- Checkout step node indicator bar -->
+                        <div class="checkout-steps-container">
+                            <div class="checkout-step-node active" id="step-node-1">
+                                <div class="checkout-step-number">1</div>
+                                <span class="checkout-step-label">Details</span>
+                            </div>
+                            <div class="checkout-step-node" id="step-node-2">
+                                <div class="checkout-step-number">2</div>
+                                <span class="checkout-step-label">Payment</span>
+                            </div>
+                            <div class="checkout-step-node" id="step-node-3">
+                                <div class="checkout-step-number">3</div>
+                                <span class="checkout-step-label">Receipt</span>
+                            </div>
+                        </div>
+
+                        <!-- Step 1: Customer Info & Shipping Address Form -->
+                        <div id="checkout-step-1-panel" class="form-card">
+                            <h3 class="form-title">Shipping & Contact Details</h3>
+                            <form id="checkout-address-form" onsubmit="event.preventDefault()">
+                                <div class="form-grid">
+                                    <div class="form-field full-width">
+                                        <label for="co-email" class="form-label">Email Address *</label>
+                                        <input type="email" id="co-email" class="form-input" placeholder="e.g. client@luxury.com" required>
+                                        <span class="form-error" id="co-email-error"></span>
+                                    </div>
+                                    <div class="form-field">
+                                        <label for="co-fname" class="form-label">First Name *</label>
+                                        <input type="text" id="co-fname" class="form-input" required>
+                                        <span class="form-error" id="co-fname-error"></span>
+                                    </div>
+                                    <div class="form-field">
+                                        <label for="co-lname" class="form-label">Last Name *</label>
+                                        <input type="text" id="co-lname" class="form-input" required>
+                                        <span class="form-error" id="co-lname-error"></span>
+                                    </div>
+                                    <div class="form-field full-width">
+                                        <label for="co-address" class="form-label">Street Address *</label>
+                                        <input type="text" id="co-address" class="form-input" placeholder="Apartment, suite, unit, building, street" required>
+                                        <span class="form-error" id="co-address-error"></span>
+                                    </div>
+                                    <div class="form-field">
+                                        <label for="co-city" class="form-label">City *</label>
+                                        <input type="text" id="co-city" class="form-input" required>
+                                        <span class="form-error" id="co-city-error"></span>
+                                    </div>
+                                    <div class="form-field">
+                                        <label for="co-zip" class="form-label">Zip/Postal Code *</label>
+                                        <input type="text" id="co-zip" class="form-input" placeholder="5-6 digits" required>
+                                        <span class="form-error" id="co-zip-error"></span>
+                                    </div>
+                                    <div class="form-field full-width">
+                                        <label for="co-phone" class="form-label">Phone Number *</label>
+                                        <input type="tel" id="co-phone" class="form-input" placeholder="10-13 digits with country code" required>
+                                        <span class="form-error" id="co-phone-error"></span>
+                                    </div>
+                                </div>
+                                <div style="margin-top: 30px; display: flex; justify-content: flex-end;">
+                                    <button type="button" class="btn btn-primary" onclick="checkoutNextStep()">Continue to Payment</button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- Step 2: Payment Details Form -->
+                        <div id="checkout-step-2-panel" class="form-card" style="display:none;">
+                            <h3 class="form-title">Secure Checkout Payment</h3>
+                            
+                            <div class="payment-methods-list">
+                                <!-- Card Radio -->
+                                <label class="payment-radio-label">
+                                    <input type="radio" name="payment-method" value="card" checked onclick="selectPaymentDetails('card')">
+                                    <span>Credit / Debit Card</span>
+                                    <div class="payment-method-details">
+                                        <i class="fab fa-cc-visa"></i>
+                                        <i class="fab fa-cc-mastercard"></i>
+                                        <i class="fab fa-cc-amex"></i>
+                                    </div>
+                                </label>
+
+                                <!-- Card Input Fields -->
+                                <div id="pay-details-card" class="payment-input-details active">
+                                    <div class="form-grid">
+                                        <div class="form-field full-width">
+                                            <label for="pay-cardnumber" class="form-label">16-Digit Card Number</label>
+                                            <input type="text" id="pay-cardnumber" class="form-input" placeholder="XXXX XXXX XXXX XXXX" maxlength="19">
+                                            <span class="form-error" id="pay-cardnumber-error">Enter a valid 16-digit card number</span>
+                                        </div>
+                                        <div class="form-field">
+                                            <label for="pay-expiry" class="form-label">Expiry Date (MM/YY)</label>
+                                            <input type="text" id="pay-expiry" class="form-input" placeholder="MM/YY" maxlength="5">
+                                            <span class="form-error" id="pay-expiry-error">Enter valid expiry MM/YY</span>
+                                        </div>
+                                        <div class="form-field">
+                                            <label for="pay-cvv" class="form-label">CVV Code</label>
+                                            <input type="password" id="pay-cvv" class="form-input" placeholder="XXX" maxlength="3">
+                                            <span class="form-error" id="pay-cvv-error">Enter valid 3-digit CVV</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- UPI Radio -->
+                                <label class="payment-radio-label">
+                                    <input type="radio" name="payment-method" value="upi" onclick="selectPaymentDetails('upi')">
+                                    <span>UPI Transaction (Instant)</span>
+                                    <div class="payment-method-details">
+                                        <i class="fas fa-mobile-alt"></i>
+                                    </div>
+                                </label>
+
+                                <!-- UPI Input Field -->
+                                <div id="pay-details-upi" class="payment-input-details">
+                                    <div class="form-field">
+                                        <label for="pay-upi-id" class="form-label">Enter UPI Virtual Address ID</label>
+                                        <input type="text" id="pay-upi-id" class="form-input" placeholder="username@bank">
+                                        <span class="form-error" id="pay-upi-id-error">Enter a valid UPI ID (e.g. mobile@ybl)</span>
+                                    </div>
+                                </div>
+
+                                <!-- Net Banking Radio -->
+                                <label class="payment-radio-label">
+                                    <input type="radio" name="payment-method" value="netbanking" onclick="selectPaymentDetails('netbanking')">
+                                    <span>Net Banking Select</span>
+                                    <div class="payment-method-details">
+                                        <i class="fas fa-university"></i>
+                                    </div>
+                                </label>
+
+                                <div id="pay-details-netbanking" class="payment-input-details">
+                                    <div class="form-field">
+                                        <label for="pay-bank-select" class="form-label">Choose Bank</label>
+                                        <select id="pay-bank-select" class="form-select">
+                                            <option value="chase">Chase Elite Banking</option>
+                                            <option value="hsbc">HSBC Premier</option>
+                                            <option value="ubs">UBS Swiss Banking</option>
+                                            <option value="citi">Citigroup Private</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <!-- Cash on Delivery Radio -->
+                                <label class="payment-radio-label">
+                                    <input type="radio" name="payment-method" value="cod" onclick="selectPaymentDetails('cod')">
+                                    <span>Cash on Delivery (Premium Courier Fees Applies)</span>
+                                    <div class="payment-method-details">
+                                        <i class="fas fa-hand-holding-usd"></i>
+                                    </div>
+                                </label>
+                                
+                                <div id="pay-details-cod" class="payment-input-details">
+                                    <p style="font-size:0.85rem; color:var(--text-secondary);">Premium courier cash handling fees ($10) will be added upon delivery. You can settle in cash with the courier upon receipt.</p>
+                                </div>
+                            </div>
+
+                            <div style="margin-top: 40px; display: flex; justify-content: space-between;">
+                                <button type="button" class="btn btn-outline" onclick="checkoutPrevStep()">Back to Address</button>
+                                <button type="button" class="btn btn-gold" onclick="checkoutNextStep()">Place Order & Pay</button>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Receipt / Success confirmation panel -->
+                        <div id="checkout-step-3-panel" style="display:none;">
+                            <div class="order-success-view">
+                                <div class="success-icon-wrapper">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <h3 class="order-success-title">Purchase Confirmed</h3>
+                                <p class="order-success-msg">Your transaction was processed securely. A premium boutique representative is compiling your order items.</p>
+                                
+                                <div class="order-details-box">
+                                    <div class="order-details-line">
+                                        <span>Order Number:</span>
+                                        <span id="success-order-id" class="gold-text" style="font-weight:700;">#AURA-329482</span>
+                                    </div>
+                                    <div class="order-details-line">
+                                        <span>Estimated Delivery:</span>
+                                        <span id="success-delivery-date" style="font-weight:600;">Thursday, July 9, 2026</span>
+                                    </div>
+                                    <div class="order-details-line">
+                                        <span>Settle Amount:</span>
+                                        <span id="success-amount" style="font-weight:600;">$0.00</span>
+                                    </div>
+                                    <div class="order-details-line">
+                                        <span>Courier Status:</span>
+                                        <span style="color:var(--color-success); font-weight:600;">Pending Dispatch</span>
+                                    </div>
+                                </div>
+
+                                <a href="#shop" class="btn btn-primary btn-block">Continue Shopping</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Checkout details summary panel -->
+                    <div class="checkout-summary-card">
+                        <h4 style="font-family: var(--font-secondary); text-transform:uppercase; font-size:1.1rem; border-bottom:1px solid var(--border-color); padding-bottom:12px; margin-bottom:20px;">Order Summary</h4>
+                        
+                        <!-- Scrollable list of cart items in summary -->
+                        <div id="checkout-summary-items-list" class="checkout-summary-items">
+                            <!-- Dynamic items -->
+                        </div>
+
+                        <!-- Calculations totals block -->
+                        <div style="margin-top: 20px; border-top:1px solid var(--border-color); padding-top:20px;">
+                            <div class="cart-summary-line">
+                                <span>Cart Subtotal</span>
+                                <span id="checkout-subtotal">$0.00</span>
+                            </div>
+                            <div class="cart-summary-line" id="checkout-discount-row" style="display:none;">
+                                <span>VIP Golden Discount (20%)</span>
+                                <span id="checkout-discount" class="gold-text" style="font-weight:600;">-$0.00</span>
+                            </div>
+                            <div class="cart-summary-line">
+                                <span>Sales Tax (8%)</span>
+                                <span id="checkout-tax">$0.00</span>
+                            </div>
+                            <div class="cart-summary-line">
+                                <span>Premium Courier Shipping</span>
+                                <span id="checkout-shipping">$0.00</span>
+                            </div>
+                            <div class="cart-summary-line total">
+                                <span>Total Acquisition Price</span>
+                                <span id="checkout-total" class="gold-text">$0.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- E. ABOUT US VIEW -->
+        <section id="about-view" class="view-section">
+            <!-- Header Cover -->
+            <div class="about-banner-container" style="background-image: url('images/about_banner.png');">
+                <div class="about-banner-content">
+                    <h2 style="font-size: 3rem; margin-bottom: 12px; color: #ffffff;">Our Heritage</h2>
+                    <p style="font-weight:300; text-transform:uppercase; letter-spacing:3px;">AURA Couture Design Studio</p>
+                </div>
+            </div>
+
+            <div class="container section-padding">
+                <div class="about-grid">
+                    <div class="about-story">
+                        <h3>A Legacy of Gold & Drapery</h3>
+                        <p>Established under the philosophy of absolute visual elegance, AURA crafts premium couture that stands outside the standard transient loops of modern fast fashion.</p>
+                        <p>Each design begins inside our atelier, draft-curated by pattern makers using premium Italian silks, soft cashmere wool, and gold accents. We focus on structural alignment, ensuring each shoulder, hem, and sleeve falls exactly where it is destined.</p>
+                        <p>We pride ourselves on direct boutique distribution, delivering high-end garments without premium wholesale markups.</p>
+                    </div>
+                    <div style="background-color:var(--bg-secondary); border: 1px solid var(--border-color); padding: 40px;">
+                        <h4 style="font-family:var(--font-secondary); font-size:1.4rem; margin-bottom:20px; text-transform:uppercase;">The Brand Oath</h4>
+                        <ul style="display:flex; flex-direction:column; gap:16px; font-size:0.95rem; color:var(--text-secondary);">
+                            <li><strong class="gold-text" style="font-weight:600;">100% Ethical Cashmere</strong> - Curated using traceable raw cashmere farmers.</li>
+                            <li><strong class="gold-text" style="font-weight:600;">Italian Silk Millwork</strong> - Fabric woven inside zero-impact solar powered silk weavers in Como, Italy.</li>
+                            <li><strong class="gold-text" style="font-weight:600;">Recycled Gold Embellishments</strong> - Metal hooks and zippers are crafted using recycled solid alloy cores.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="about-features">
+                    <div class="about-feature-card">
+                        <div class="about-feature-icon"><i class="fas fa-shipping-fast"></i></div>
+                        <h4 class="about-feature-title">Premium Shipping</h4>
+                        <p class="about-feature-desc">Delivered via signature white glove courier boxes. Free over $150.</p>
+                    </div>
+                    <div class="about-feature-card">
+                        <div class="about-feature-icon"><i class="fas fa-gem"></i></div>
+                        <h4 class="about-feature-title">Golden Rewards</h4>
+                        <p class="about-feature-desc">Earn points on every purchase to redeem on bespoke capsule releases.</p>
+                    </div>
+                    <div class="about-feature-card">
+                        <div class="about-feature-icon"><i class="fas fa-redo"></i></div>
+                        <h4 class="about-feature-title">30-Day Returns</h4>
+                        <p class="about-feature-desc">Complimentary home pickups for all returned or exchanged sizes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- F. CONTACT & FAQ VIEW -->
+        <section id="contact-view" class="view-section">
+            <div class="container section-padding">
+                <div class="text-center">
+                    <h2 class="section-title">Connect With Us</h2>
+                    <p class="section-subtitle">Speak with our private concierge representatives</p>
+                </div>
+
+                <div class="contact-grid">
+                    <!-- Left: Concierge Info -->
+                    <div class="contact-info-card">
+                        <h3 class="contact-info-title">Atelier Concierge</h3>
+                        <div class="contact-info-list">
+                            <div class="contact-info-item">
+                                <div class="contact-info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                                <div class="contact-info-details">
+                                    <h4>Design Headquarters</h4>
+                                    <p>84 Golden Couture Boulevard, Atelier Suite B, New York, NY 10012</p>
+                                </div>
+                            </div>
+                            <div class="contact-info-item">
+                                <div class="contact-info-icon"><i class="fas fa-phone-alt"></i></div>
+                                <div class="contact-info-details">
+                                    <h4>Phone Reservations</h4>
+                                    <p>+1 (800) 555-AURA (General Line)<br>+1 (212) 555-0982 (Bespoke Fitting)</p>
+                                </div>
+                            </div>
+                            <div class="contact-info-item">
+                                <div class="contact-info-icon"><i class="fas fa-envelope"></i></div>
+                                <div class="contact-info-details">
+                                    <h4>Digital Correspondence</h4>
+                                    <p>concierge@aurafashion.com<br>returns@aurafashion.com</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="contact-socials">
+                            <a href="#" class="footer-social-btn" aria-label="Aura on Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="footer-social-btn" aria-label="Aura on Pinterest"><i class="fab fa-pinterest"></i></a>
+                            <a href="#" class="footer-social-btn" aria-label="Aura on Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="footer-social-btn" aria-label="Aura on Twitter"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Right: Form Validation -->
+                    <div class="form-card">
+                        <h3 class="form-title">Send a Correspondence</h3>
+                        <form id="contact-form" onsubmit="handleContactSubmit(event)">
+                            <div class="form-grid" style="margin-bottom: 20px;">
+                                <div class="form-field">
+                                    <label for="ct-name" class="form-label">Full Name *</label>
+                                    <input type="text" id="ct-name" class="form-input" required>
+                                </div>
+                                <div class="form-field">
+                                    <label for="ct-email" class="form-label">Email Address *</label>
+                                    <input type="email" id="ct-email" class="form-input" required>
+                                </div>
+                                <div class="form-field full-width">
+                                    <label for="ct-subject" class="form-label">Subject</label>
+                                    <input type="text" id="ct-subject" class="form-input" placeholder="e.g. Size advice, order inquiry">
+                                </div>
+                                <div class="form-field full-width">
+                                    <label for="ct-message" class="form-label">Message *</label>
+                                    <textarea id="ct-message" class="form-textarea" required></textarea>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-gold btn-block">Submit Correspondence</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- FAQ Section -->
+                <div class="section-padding" style="margin-top: 40px; border-top: 1px solid var(--border-color);">
+                    <div class="text-center">
+                        <h2 class="section-title">Frequently Asked Questions</h2>
+                        <p class="section-subtitle">Quick resolutions to common premium orders questions</p>
+                    </div>
+                    <div class="faq-container">
+                        <!-- FAQ 1 -->
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                <span>What shipping logistics are used for deliveries?</span>
+                                <i class="fas fa-chevron-down faq-icon"></i>
+                            </div>
+                            <div class="faq-answer-wrapper">
+                                <div class="faq-answer">
+                                    AURA ships all domestic and international orders via DHL Express and FedEx Priority air mail. Each garment is packed flat inside our signature black dustbags and placed inside rigid gold-embossed boxes to prevent creasing.
+                                </div>
+                            </div>
+                        </div>
+                        <!-- FAQ 2 -->
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                <span>How do I process a size exchange?</span>
+                                <i class="fas fa-chevron-down faq-icon"></i>
+                            </div>
+                            <div class="faq-answer-wrapper">
+                                <div class="faq-answer">
+                                    We offer complimentary pick-ups for returns and size swaps. Simply email returns@aurafashion.com or log into your client profile. A courier will be dispatched to collect the boxed item at a time of your choosing.
+                                </div>
+                            </div>
+                        </div>
+                        <!-- FAQ 3 -->
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                <span>Can I request bespoke size customizations?</span>
+                                <i class="fas fa-chevron-down faq-icon"></i>
+                            </div>
+                            <div class="faq-answer-wrapper">
+                                <div class="faq-answer">
+                                    Yes. For clients residing in New York, Milan, and London, you can schedule private home tailoring appointments via our Bespoke Fitting phone reservation line. Custom hemming and lining modifications are complimentary.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 5. PRODUCT QUICK VIEW MODAL -->
+    <div id="quickview-modal" class="modal-overlay" onclick="if(event.target === this) closeQuickView()">
+        <div class="modal-content">
+            <button class="modal-close-btn" onclick="closeQuickView()" aria-label="Close modal button">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="quickview-container">
+                <!-- Gallery -->
+                <div class="quickview-gallery">
+                    <img id="qv-img" src="" alt="Product Detail">
+                </div>
+                <!-- Info details -->
+                <div class="quickview-details">
+                    <span id="qv-brand" class="qv-brand">AURA</span>
+                    <h3 id="qv-name" class="qv-name">Product Name</h3>
+                    
+                    <div class="qv-rating">
+                        <span id="qv-rating-stars" class="qv-stars"></span>
+                        <span id="qv-rating-count" class="qv-rating-text"></span>
+                    </div>
+
+                    <div id="qv-price-container" class="qv-price-row">
+                        <!-- Prices -->
+                    </div>
+
+                    <p id="qv-desc" class="qv-desc">Premium luxury jacket design detail.</p>
+
+                    <!-- Sizes Selector -->
+                    <div class="qv-options-group">
+                        <h4 class="qv-options-title">Size: </h4>
+                        <div id="qv-sizes-container" class="qv-size-selector">
+                            <!-- Dynamic buttons -->
+                        </div>
+                    </div>
+
+                    <!-- Colors Swatches -->
+                    <div class="qv-options-group">
+                        <h4 class="qv-options-title">Color: </h4>
+                        <div id="qv-colors-container" class="qv-color-swatches">
+                            <!-- Dynamic dots -->
+                        </div>
+                    </div>
+
+                    <!-- Quantity & Stock Row -->
+                    <div class="qv-qty-stock-row">
+                        <div class="qv-qty-selector">
+                            <button class="qv-qty-btn" onclick="changeQVQuantity(-1)">-</button>
+                            <input type="text" id="qv-qty-val" class="qv-qty-input" value="1" readonly aria-label="Quantity selector input">
+                            <button class="qv-qty-btn" onclick="changeQVQuantity(1)">+</button>
+                        </div>
+                        <span id="qv-stock-status" class="qv-stock-status"></span>
+                    </div>
+
+                    <!-- Actions -->
+                    <div class="qv-action-buttons">
+                        <button class="btn btn-gold btn-block" onclick="addQVToCart()">Add to Shopping Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 6. SHOPPING CART SLIDE OUT DRAWER -->
+    <div id="cart-drawer" class="cart-drawer">
+        <div class="cart-drawer-header">
+            <span class="cart-drawer-title">Shopping Bag</span>
+            <button class="icon-btn cart-drawer-close" onclick="closeCartDrawer()" aria-label="Close cart drawer">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <!-- Scrollable items -->
+        <div id="cart-items-wrapper" class="cart-items-container">
+            <!-- Dynamic items -->
+        </div>
+
+        <!-- Checkout summary totals calculations -->
+        <div class="cart-drawer-footer">
+            <div class="cart-summary-line">
+                <span>Subtotal</span>
+                <span id="cart-subtotal">$0.00</span>
+            </div>
+            <!-- Discount line if coupon applied -->
+            <div class="cart-summary-line" id="cart-discount-row" style="display:none;">
+                <span>Gold Member Code (20%)</span>
+                <span id="cart-discount" class="gold-text" style="font-weight:600;">-$0.00</span>
+            </div>
+            <div class="cart-summary-line">
+                <span>Estimated Sales Tax (8%)</span>
+                <span id="cart-tax">$0.00</span>
+            </div>
+            <div class="cart-summary-line">
+                <span>Premium Shipping</span>
+                <span id="cart-shipping">$0.00</span>
+            </div>
+            <div class="cart-summary-line total">
+                <span>Total Acquisition</span>
+                <span id="cart-total" class="gold-text">$0.00</span>
+            </div>
+
+            <!-- Coupon application form -->
+            <form class="cart-coupon-form" onsubmit="applyCouponCode(event)">
+                <input type="text" id="coupon-input" placeholder="Promotional Coupon (e.g. GOLD20)" class="cart-coupon-input" aria-label="Coupon code input">
+                <button type="submit" class="cart-coupon-btn">Apply</button>
+            </form>
+            <span id="coupon-message" class="coupon-msg"></span>
+
+            <a href="#checkout" id="cart-checkout-btn" class="btn btn-gold btn-block" style="text-align: center;">Proceed to Checkout</a>
+        </div>
+    </div>
+
+    <!-- 7. AUTHENTICATION MODAL (LOGIN / REGISTER) -->
+    <div id="auth-modal" class="modal-overlay" onclick="if(event.target === this) closeAuthModal()">
+        <div class="modal-content" style="max-width: 450px; padding: 40px;">
+            <button class="modal-close-btn" onclick="closeAuthModal()" aria-label="Close authentication modal">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="auth-tabs">
+                <button id="tab-login" class="auth-tab active" onclick="switchAuthTab('login')">Login</button>
+                <button id="tab-register" class="auth-tab" onclick="switchAuthTab('register')">Register</button>
+            </div>
+
+            <!-- Login Panel -->
+            <div id="panel-login" class="auth-panel active">
+                <form onsubmit="handleLoginSubmit(event)">
+                    <div style="display:flex; flex-direction:column; gap:16px;">
+                        <div>
+                            <label for="login-email" class="form-label">Client Email Address</label>
+                            <input type="email" id="login-email" class="form-input" required>
+                        </div>
+                        <div>
+                            <label for="login-pass" class="form-label">Password</label>
+                            <input type="password" id="login-pass" class="form-input" minlength="6" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block" style="margin-top: 10px;">Access Account</button>
+                    </div>
+                </form>
+                <div class="auth-footer-link">Don't have a luxury account? <a href="#" onclick="event.preventDefault(); switchAuthTab('register')">Create one now</a></div>
+            </div>
+
+            <!-- Register Panel -->
+            <div id="panel-register" class="auth-panel">
+                <form onsubmit="handleRegisterSubmit(event)">
+                    <div style="display:flex; flex-direction:column; gap:16px;">
+                        <div>
+                            <label for="reg-name" class="form-label">Full Name</label>
+                            <input type="text" id="reg-name" class="form-input" required>
+                        </div>
+                        <div>
+                            <label for="reg-email" class="form-label">Email Address</label>
+                            <input type="email" id="reg-email" class="form-input" required>
+                        </div>
+                        <div>
+                            <label for="reg-pass" class="form-label">Password (Min 6 Characters)</label>
+                            <input type="password" id="reg-pass" class="form-input" minlength="6" required>
+                        </div>
+                        <button type="submit" class="btn btn-gold btn-block" style="margin-top: 10px;">Create Client Account</button>
+                    </div>
+                </form>
+                <div class="auth-footer-link">Already a registered client? <a href="#" onclick="event.preventDefault(); switchAuthTab('login')">Login here</a></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 8. TOAST NOTIFICATION CONTAINER -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- 9. FOOTER SECTION -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Col 1: Brand details -->
+                <div class="footer-brand">
+                    <a href="#home" class="logo" style="margin-bottom:20px;">AU<span>RA</span></a>
+                    <p>High-end fashion couture design boutique delivering Italian silkmill gowns, tailored golden blazers, and luxury children garments.</p>
+                    <div class="footer-socials">
+                        <a href="#" class="footer-social-btn" aria-label="Aura on Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="footer-social-btn" aria-label="Aura on Pinterest"><i class="fab fa-pinterest"></i></a>
+                        <a href="#" class="footer-social-btn" aria-label="Aura on Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="footer-social-btn" aria-label="Aura on Twitter"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+
+                <!-- Col 2: Navigation Links -->
+                <div>
+                    <h4 class="footer-title">Navigation</h4>
+                    <div class="footer-links">
+                        <a href="#home">Home Page</a>
+                        <a href="#shop">Shop Collections</a>
+                        <a href="#about">Our Atelier Heritage</a>
+                        <a href="#contact">Contact Concierge</a>
+                    </div>
+                </div>
+
+                <!-- Col 3: Shop Categories -->
+                <div>
+                    <h4 class="footer-title">Categories</h4>
+                    <div class="footer-links">
+                        <a href="#men">Men Collection</a>
+                        <a href="#women">Women Collection</a>
+                        <a href="#kids">Kids Collection</a>
+                        <a href="#new-arrivals">New Arrivals</a>
+                        <a href="#sale">Special Sale Offers</a>
+                    </div>
+                </div>
+
+                <!-- Col 4: Customer Services Info -->
+                <div>
+                    <h4 class="footer-title">Client Services</h4>
+                    <div class="footer-links">
+                        <a href="#contact">Concierge FAQ</a>
+                        <a href="#contact">Size Advisory Guide</a>
+                        <a href="#contact">Free Courier Pickups</a>
+                        <a href="#contact">30-Day Luxury Returns</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom Bar -->
+            <div class="footer-bottom">
+                <p>&copy; 2026 AURA Couture Ltd. All luxury rights reserved. Designed with Black & Gold Theme.</p>
+                <div class="footer-payment-icons" title="Secure Payment options accepted">
+                    <i class="fab fa-cc-visa" aria-hidden="true"></i>
+                    <i class="fab fa-cc-mastercard" aria-hidden="true"></i>
+                    <i class="fab fa-cc-amex" aria-hidden="true"></i>
+                    <i class="fab fa-cc-discover" aria-hidden="true"></i>
+                    <i class="fab fa-cc-stripe" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 10. BACK TO TOP BUTTON -->
+    <button id="back-to-top" onclick="scrollToTop()" title="Scroll back to top of boutique page" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- App JavaScript Controller -->
+    <script src="script.js"></script>
+</body>
+</html>
